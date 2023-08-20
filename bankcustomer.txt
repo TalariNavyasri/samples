@@ -1,0 +1,22 @@
+package assignment1;
+
+public class Bankcustomer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int bal=25000,dep=15000,t=11000,current,interest;
+		current=(bal+dep)-t;
+		System.out.println("current"+current);
+		interest=current*2/100;
+		System.out.println("interest"+interest);
+		current=(interest*12)+current;
+		System.out.println("current bal"+current);
+		
+		
+				
+
+		
+
+	}
+
+}

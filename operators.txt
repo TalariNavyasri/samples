@@ -1,0 +1,29 @@
+package assignment1;
+
+public class Operators {
+
+public static void main(String[]args) {
+		int a,b,c,d,m,n,o,p;
+		a=30;
+		b=25;
+		c=a%b;  // arithmetic 
+		System.out.println("c is"+c);
+		d=++a + b--;  //unary operator 
+		System.out.println(a+  ""   +b+     ""    +c);
+		m=a^b;  //bitwise 
+		System.out.println(m+   "");
+		n=a+=2;   // multiple assignment operator
+		System.out.println(n+   "");
+		a=30;
+		b=25;  //relational operator 
+		System.out.println(a<b);
+	     int x=15,y=18; // logical operator 
+	     boolean result=(a>b && b>a);
+	     System.out.println("result is"+result);
+	     int m1,m2;
+	     m1=75;
+	     m2=60;  // ternary operator 
+	    String grade = (m1>70)?"grade A":"gradeB";
+	    System.out.println(grade+"grade");
+	}
+}
