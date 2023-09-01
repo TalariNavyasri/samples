@@ -1,0 +1,135 @@
+1.    package xyz;
+class Student
+{
+	int sid;
+	String sname;
+	int marks;
+	
+		void input(int x,String y,int z)
+	{
+		sid=x;
+		sname=y;
+		marks=z;
+	}
+	void output()
+	{
+		System.out.println(sid+" "+sname+" "+marks);
+	
+			
+		
+		{
+			
+		}
+	}
+}
+
+
+public class Student1 {
+
+	public static void main(String[] args) {
+	Student s=new Student();
+	s.input(214,"varun",50);
+	s.output();
+		
+	
+
+	}
+
+}
+
+2.   package xyz;
+class Bankcustomer
+{
+	int acno;
+	String actype;
+	double amt;
+	Bankcustomer( int x,String y)
+	{
+		acno=x;
+		actype=y;
+		
+	
+		
+			
+			}
+      Bankcustomer(Bankcustomer e)
+      {
+    	  acno=e.acno;
+    	  actype=e.actype;
+    	  amt=e.amt;
+      }
+      void display()
+      {
+    	  System.out.println(acno+" "+actype+" "+amt);
+      }
+
+public class Constructor {
+
+	public static void main(String[] args) {
+		Bankcustomer b1=new Bankcustomer(12345,"savings");
+		Bankcustomer b2=new Bankcustomer(b1);
+		b1.display();
+		b2.display();
+
+	}
+		
+
+	}
+
+}
+
+3.   package xyz;
+class Person
+{
+	    int pid;
+        String pname;
+	
+		Person()
+		{
+	pid=214450;
+	pname="Neha";
+	
+		}
+}
+  class Student extends Person
+  {
+			int marks;
+		Student()
+		
+		{
+			marks=95;
+		}
+		 void show()
+			{
+				System.out.println(pid+" "+pname+" "+marks);
+				
+			
+
+		}
+				class Employee extends Person
+				{
+					 double salary;
+					 Employee()
+					 {
+						 salary=25000;
+					 }
+	 void show()
+	{
+		System.out.println(pid+" "+pname+" "+salary);
+		
+	
+	}
+}
+
+public class Inheritanceassesment {
+
+	public static void main(String[] args) {
+	Student s=new Student();
+    Employee e=new Employee();
+    s.show();
+    e.show();
+	}
+}
+		}
+
+
