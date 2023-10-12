@@ -1,0 +1,40 @@
+create database employees
+use employees
+create table depts(dno int primary key,dname varchar(20) not null,location varchar(10) check(in('IND','USA','UK'))
+desc depts
+insert into depts values(2,'Testing','UK')
+drop table depts
+create table depts(dno int primary key,dname varchar(20) not null,location varchar(10) check(location='ind')  check(location='usa')  check(location='uk'))
+inseert into depts values(2,'testing','ind')
+drop table depts
+create table depts(dno int primary key,dname varchar(20) not null,location varchar(10) check(location in('IND','USA','UK')))
+insert into depts values(2,'testing','usa')
+insert into depts values(3,'finance','uk')
+insert into depts values(4,'accounts','usa')
+select * from depts
+insert into depts values(1,'sales','ind')
+insert into depts values(5,'shopping','ind')
+create table emps(eid int primary key,ename varchar(20) not null,salary int check(salary >=10000 and salary<=50000),dno int, constraint fk1 foreign key(dno) references depts(dno))
+insert into emps values(10,'navi',10000,2)
+insert into emps values(11,'Nagendra',30000,4),(12,'tuttu',35000,5),(13,'neha',40000,2)
+select * from emps
+create table projects(pid int primary key,pname varchar(20) not null)
+insert into projects values(214,'java'),(226,'python')
+select * from projects
+create table EmpProjects(eid int, pid int ,constraint fk2 foreign key(eid) references emps(eid), constraint fk3 foreign key(pid) references projects(pid))
+insert into EmpProjects values(10,214),(11,226)
+select * from EmpProjects
+select * from emps,depts where emps.dno=depts.dno
+select * from emps,projects where emps.eid=projects.pid
+select dno,sum(salary),count(dno) from emps group by dno
+select * from depts where emps.eid=depts.dno
+select * from depts d where not exists(select dno from emps where dno=d.dno)
+select * from emps e where 3=(select count(distinct salary) from emps where salary<e.salary)
+select * from emps where salary in(select salary from emps group by salary having count(*)=2) group by eid having count(*)=2
+delimiter $$
+create procedure insrt(in eid1 int,in ename1 varchar(10),in salary1 int,in dno1 int)
+begin
+insert into emps values(15,'xyz',10000,3);
+end $$
+call insrt(15,@xyz,10000,3)
+create view vsal as select salary eid,salary*12 as annual salary,(salary*12)*0.2 as annual savings from emps 
